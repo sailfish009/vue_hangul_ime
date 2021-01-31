@@ -2408,7 +2408,8 @@ function show_NCR(op) { // 문자를 유니코드 부호값과 맞대어 나타�
 
 function add_option(opts, opt_name, footer) {
 	var opt = document.getElementById('option_' + opt_name);
-	eval('var opt_var = option.' + opt_name);
+	// eval('var opt_var = option.' + opt_name);
+	var opt_var = 'option.' + opt_name;
 	var opt_html = '<div class="option"><input name="' + opt_name + '" class="checkbox" type="checkbox"' + (opt_var ? ' checked="checked"' : '') + ' onclick="option.' + opt_name + '=this.checked; ' + footer;
 	if(!opt) opt = document.body.appendChild(opts, 'div', 'option', 'option_' + opt_name, opt_html);
 	opt.style.display = 'block';
@@ -2552,10 +2553,14 @@ function show_options() {
 }
 
 function show_keyboard_layout(type) {
+    var i =0;
+    var j =0;
+    var k =0;
 	var rows = document.getElementById('keyboardLayout');
 	if(!rows) return false;
 	rows.style.position = 'relative';
 	rows.style.display = 'block';
+    var ohi_menu_num = 0;
 
 	var inner_html='';
 	shift_click=0;
@@ -2640,8 +2645,8 @@ function show_keyboard_layout(type) {
 
 	rows.innerHTML = inner_html;
 
-	char_converting_table_original_code = [0x1B, 0x1160];
-	char_converting_table_target_string = ['🄴', '🄵'];
+	var char_converting_table_original_code = [0x1B, 0x1160];
+	var char_converting_table_target_string = ['🄴', '🄵'];
  
 	for(i=0, k=-1; ue[i]; i++) {
 		var row = document.getElementById('row'+i);

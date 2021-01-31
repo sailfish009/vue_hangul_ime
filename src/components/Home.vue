@@ -2,20 +2,18 @@
   <div class="content">
 
   <div class="title">
-    <span class="emph">오</span>라이 <span class="emph" style="letter-spacing:-0.4em;">ㅎ</span><span style="letter-spacing:-0.3    em;">ㅏ</span>그 <span class="emph">이</span>려기 -
     <span class="emph">O</span>nline <span class="emph">H</span>anGeul <span class="emph">I</span>ME
-    <br />ㄴ <span style="letter-spacing:-0.4em;">ㄴ</span> ㄴㄹ ㅂㄱ
   </div>
   <div id="ohi_wrap">
     <div id="ohi_menu">
       <div class="left_menu">
-        <div class="this" id="menu1" onclick="gotoTab(1)" onmouseover="this.className+=' over'" onmouseout="this.className=this.        className.replace(' over','')">
+        <div class="this" id="menu1" @click="gotoTab(1)" onmouseover="this.className+=' over'" onmouseout="this.className=this.        className.replace(' over','')">
           <span>글 넣기</span>
         </div>
-        <div class="menu" id="menu2" onclick="gotoTab(2)" onmouseover="this.className+=' over'" onmouseout="this.className=this.        className.replace(' over','')">
+        <div class="menu" id="menu2" @click="gotoTab(2)" onmouseover="this.className+=' over'" onmouseout="this.className=this.        className.replace(' over','')">
           <span>찾기</span>
         </div>
-        <div class="menu" id="menu3" onclick="gotoTab(3)" onmouseover="this.className+=' over'" onmouseout="this.className=this.        className.replace(' over','')">
+        <div class="menu" id="menu3" @click="gotoTab(3)" onmouseover="this.className+=' over'" onmouseout="this.className=this.        className.replace(' over','')">
           <span>도움말</span>
         </div>
       </div>
@@ -44,19 +42,19 @@
         </ul>
         <ul>
           <li>
-            영문&nbsp;&nbsp; : <kbd class="menu" onclick="javascript:ohiChange_between_same_type('En')" onmouseover="this.classN            ame='over'" onmouseout="this.className='menu'">Alt+1</kbd>
+            영문&nbsp;&nbsp; : <kbd class="menu" @click="change_between_same_type('En')" onmouseover="this.classN            ame='over'" onmouseout="this.className='menu'">Alt+1</kbd>
              【<kbd class="menu" onclick="javascript:ohiChange('En','QWERTY')" onmouseover="this.className='over'" onmouseout="t             his.className='menu'">QWERTY</kbd>
              - <kbd class="menu" onclick="javascript:ohiChange('En','Dvorak')" onmouseover="this.className='over'" onmouseout="t             his.className='menu'">Dvorak</kbd>
              - <kbd class="menu" onclick="javascript:ohiChange('En','Colemak')" onmouseover="this.className='over'" onmouseout="             this.className='menu'">Colemak</kbd>
              - <kbd class="menu" onclick="javascript:ohiChange('En','Workman')" onmouseover="this.className='over'" onmouseout="             this.className='menu'">Workman</kbd>】
           </li>
           <li>
-            2벌식 : <kbd class="menu" onclick="javascript:ohiChange_between_same_type('K2')" onmouseover="this.className='over'"             onmouseout="this.className='menu'">Alt+2</kbd>
+            2벌식 : <kbd class="menu" @click="change_between_same_type('K2')" onmouseover="this.className='over'"             onmouseout="this.className='menu'">Alt+2</kbd>
             【<kbd class="menu" onclick="javascript:ohiChange('Ko','2-KSX5002')" onmouseover="this.className='over'" onmouseout=            "this.className='menu'">KSX5002(한국)</kbd>
              - <kbd class="menu" onclick="javascript:ohiChange('Ko','2-KPS9256')" onmouseover="this.className='over'" onmouseout             ="this.className='menu'">KPS9256(조선)</kbd>】
           </li>
           <li>
-            3벌식 : <kbd class="menu" onclick="javascript:ohiChange_between_same_type('K3')" onmouseover="this.className='over'"             onmouseout="this.className='menu'">Alt+3</kbd>
+            3벌식 : <kbd class="menu" @click="change_between_same_type('K3')" onmouseover="this.className='over'"             onmouseout="this.className='menu'">Alt+3</kbd>
             【<kbd class="menu" onclick="javascript:ohiChange('Ko','Sin3-P2')" onmouseover="this.className='over'" onmouseout="t            his.className='menu'">신세벌식 P2</kbd>
             - <kbd class="menu" onclick="javascript:ohiChange('Ko','3m-Semoe')" onmouseover="this.className='over'" onmouseout="            this.className='menu'">세모이</kbd>
             - <kbd class="menu" onclick="javascript:ohiChange('Ko','3-P3')" onmouseover="this.className='over'" onmouseout="this            .className='menu'">3-P3</kbd>】
@@ -306,12 +304,16 @@
 import keyboard_layouts from '../assets/js/keyboard_layouts.js'
 import { ohiChange_between_same_type } from '../assets/js/ohi.js'
 
+
 export default {
   name: 'Home',
   props: {
     msg: String
   },
   methods: {
+    change_between_same_type(lang){
+      ohiChange_between_same_type(lang);
+    },
 
     gotoTab(n) {
       var ohi_menu_num = n;
