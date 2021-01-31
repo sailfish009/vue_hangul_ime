@@ -47,6 +47,8 @@ var Ko_type; // 한글 자판 종류 (ohiChange 함수로 바꿈)
 var ohi_KBD_type; // 기준 자판 종류 (QWERTY/QWERTZ/AZERTY, ohiChange_KBD_type 함수로 바꿈)
 var ohi_KE; // 한글·영문 상태 (Ko: 한글, En: 영문) (ohiChange_KE 함수로 바꿈)
 
+var unicode_NFD_hangeul_sidedot = [0x302E,0x302F]; // 옛한글에서 성조를 나타내는 방점
+
 function option() {
 	var enable_double_final_ext; // 겹받침 확장 배열 쓰기 --> ohiChange_enable_double_final_ext() 함수로 값을 바꿈
 	var enable_sign_ext; // 세벌식 자판의 기호 확장 배열 쓰기 --> ohiChange_enable_sign_ext() 함수로 값을 바꿈
@@ -3703,7 +3705,7 @@ function ohi_code_tables() {
 	unicode_NFD_hangeul_phoneme = unicode_cheos.concat(unicode_ga, unicode_ggeut); // 첫가끝 조합형 한글 낱자
 	var unicode_NFD_hangeul_filler = [0x115F,0x1160]; // 첫가끝 조합형 첫소리·가운뎃소리 채움 문자
 	var unicode_NFD_hangeul_code = unicode_NFD_hangeul_phoneme.concat(unicode_NFD_hangeul_filler); 	// 첫가끝 조합형에서 한글 낱내를 나타내는 데에 쓰이는 부호
-	var unicode_NFD_hangeul_sidedot = [0x302E,0x302F]; // 옛한글에서 성조를 나타내는 방점
+	// var unicode_NFD_hangeul_sidedot = [0x302E,0x302F]; // 옛한글에서 성조를 나타내는 방점
 
 	i=0x1100;	while(i<=0x1112) unicode_modern_cheos.push(i++);
 	i=0x1161;	while(i<=0x1175) unicode_modern_ga.push(i++);
