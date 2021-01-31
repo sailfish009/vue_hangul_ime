@@ -1,5 +1,7 @@
 # hangul_ime
 
+current status: not working, need to be fixed.
+
 ## Project setup
 ```
 yarn install
