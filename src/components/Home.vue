@@ -302,13 +302,18 @@
 <script>
 /* eslint-disable */
 import keyboard_layouts from '../assets/js/keyboard_layouts.js'
-import { ohiChange_between_same_type } from '../assets/js/ohi.js'
-
+import {ohi_code_tables, browser_detect, ohiStart, url_query, ohiChange_between_same_type } from '../assets/js/ohi.js'
 
 export default {
   name: 'Home',
   props: {
     msg: String
+  },
+  mounted() {
+    ohi_code_tables();
+    browser_detect();
+    ohiStart();
+    url_query();
   },
   methods: {
     change_between_same_type(lang){
