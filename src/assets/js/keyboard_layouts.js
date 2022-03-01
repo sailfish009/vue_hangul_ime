@@ -4428,5 +4428,5 @@ function input_combination_table_info() {
 
 } // input_combination_table_info()
 
-export {keyboard_layouts}
+export {keyboard_layouts, hangeul_combination_table_default}
 

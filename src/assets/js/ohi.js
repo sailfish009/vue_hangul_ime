@@ -35,7 +35,7 @@
 
 **/
 
-import {keyboard_layouts} from './keyboard_layouts.js'
+import {keyboard_layouts, hangeul_combination_table_default} from './keyboard_layouts.js'
 
 var default_En_type = 'QWERTY';
 var default_Ko_type = 'Sin3-P2';

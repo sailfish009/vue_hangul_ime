@@ -32,32 +32,24 @@
         <p><strong>온라인 한글 입력기(OHI)</strong>는 웹에서 바로 쓸 수 있는 화상 자판 입력기입니다.</p>
         <ul>
           <li>
-            한·영 상태 : 
-            <kbd class="menu" @click="javascript:ohiChange_KE();inputText_focus()" onmouseover="this.className='over'" onmouseout="this.className='menu'">Ctrl+Space</kbd> 또는
-            <kbd class="menu" @click="javascript:ohiChange_KE();inputText_focus()" onmouseover="this.className='over'" onmouseout="this.className='menu'">Shift+Space</kbd>
+            <kbd class="menu" @click="ohiChange_KE();inputText_focus()" onmouseover="this.className='over'" onmouseout="this.className='menu'">Ctrl+Space</kbd>
           </li>
           <li>
-            기준 자판 : <kbd class="menu" @click="javascript:ohiChange_KBD_type();inputText_focus()" onmouseover="this.className='over'" onmouseout="this.className='menu'">Ctrl+Enter</kbd> 【<kbd class="menu" onclick="ohiChange_KBD_type('QWERT            Y');inputText_focus()">QWERTY</kbd> - <kbd class="menu" onclick="ohiChange_KBD_type('QWERTZ');inputText_focus()">QWE            RTZ</kbd> - <kbd class="menu" onclick="ohiChange_KBD_type('AZERTY');inputText_focus()">AZERTY</kbd>】
+            기준 자판 : <kbd class="menu" @click="ohiChange_KBD_type();inputText_focus()" onmouseover="this.className='over'" onmouseout="this.className='menu'">Ctrl+Enter</kbd> 【<kbd class="menu" onclick="ohiChange_KBD_type('QWERT            Y');inputText_focus()">QWERTY</kbd> - <kbd class="menu" onclick="ohiChange_KBD_type('QWERTZ');inputText_focus()">QWE            RTZ</kbd> - <kbd class="menu" onclick="ohiChange_KBD_type('AZERTY');inputText_focus()">AZERTY</kbd>】
           </li>
         </ul>
         <ul>
           <li>
             영문&nbsp;&nbsp; : <kbd class="menu" @click="change_between_same_type('En')" onmouseover="this.className='over'" onmouseout="this.className='menu'">Alt+1</kbd>
-             【<kbd class="menu" @click="javascript:ohiChange('En','QWERTY')" onmouseover="this.className='over'" onmouseout="this.className='menu'">QWERTY</kbd>
-             - <kbd class="menu" @click="javascript:ohiChange('En','Dvorak')" onmouseover="this.className='over'" onmouseout="this.className='menu'">Dvorak</kbd>
-             - <kbd class="menu" @click="javascript:ohiChange('En','Colemak')" onmouseover="this.className='over'" onmouseout="this.className='menu'">Colemak</kbd>
-             - <kbd class="menu" @click="javascript:ohiChange('En','Workman')" onmouseover="this.className='over'" onmouseout="this.className='menu'">Workman</kbd>】
+             【<kbd class="menu" @click="ohiChange('En','QWERTY')" onmouseover="this.className='over'" onmouseout="this.className='menu'">QWERTY</kbd>
+             - <kbd class="menu" @click="ohiChange('En','Dvorak')" onmouseover="this.className='over'" onmouseout="this.className='menu'">Dvorak</kbd>
+             - <kbd class="menu" @click="ohiChange('En','Colemak')" onmouseover="this.className='over'" onmouseout="this.className='menu'">Colemak</kbd>
+             - <kbd class="menu" @click="ohiChange('En','Workman')" onmouseover="this.className='over'" onmouseout="this.className='menu'">Workman</kbd>】
           </li>
           <li>
-            2벌식 : <kbd class="menu" @click="change_between_same_type('K2')" onmouseover="this.className='over'"onmouseout="this.className='menu'">Alt+2</kbd>
-            【<kbd class="menu" @click="javascript:ohiChange('Ko','2-KSX5002')" onmouseover="this.className='over'" onmouseout="this.className='menu'">KSX5002(한국)</kbd>
-             - <kbd class="menu" @click="javascript:ohiChange('Ko','2-KPS9256')" onmouseover="this.className='over'" onmouseout="this.className='menu'">KPS9256(조선)</kbd>】
-          </li>
-          <li>
-            3벌식 : <kbd class="menu" @click="change_between_same_type('K3')" onmouseover="this.className='over'"onmouseout="this.className='menu'">Alt+3</kbd>
-            【<kbd class="menu" @click="javascript:ohiChange('Ko','Sin3-P2')" onmouseover="this.className='over'" onmouseout="this.className='menu'">신세벌식 P2</kbd>
-            - <kbd class="menu" @click="javascript:ohiChange('Ko','3m-Semoe')" onmouseover="this.className='over'" onmouseout="this.className='menu'">세모이</kbd>
-            - <kbd class="menu" @click="javascript:ohiChange('Ko','3-P3')" onmouseover="this.className='over'" onmouseout="this.className='menu'">3-P3</kbd>】
+            2벌식 : <kbd class="menu" @click="change_between_same_type('K2')" onmouseover="this.className='over'" onmouseout="this.className='menu'">Alt+2</kbd>
+            【<kbd class="menu" @click="ohiChange('Ko','2-KSX5002')" onmouseover="this.className='over'" onmouseout="this.className='menu'">KSX5002(한국)</kbd>
+             - <kbd class="menu" @click="ohiChange('Ko','2-KPS9256')" onmouseover="this.className='over'" onmouseout="this.className='menu'">KPS9256(조선)</kbd>】
           </li>
         </ul>
         <div id="more_layouts_wrap">
@@ -65,60 +57,54 @@
             【주요 자판＋】
           </a>
           <div id="more_layouts" class="layout_group_tab">
-            <a class="layout_group_link" @click="var ml=document.getElementById('more_layouts');ml.style.display='none';getElementById('more_layouts_link').style.display='inline-block'" href="javascript:void(0)">【주요 자판－】</a>
             <ul>
               <li>
                 두벌식 : 
-                <kbd class="menu" @click="javascript:ohiChange('Ko','2-KSX5002')" onmouseover="this.className='over'" onmouseout="this.className='menu'">KSX5002</kbd>,
-                <kbd class="menu" @click="javascript:ohiChange('Ko','2-KPS9256')" onmouseover="this.className='over'" onmouseout="this.className='menu'">KPS9256</kbd>
+                <kbd class="menu" @click="ohiChange('Ko','2-KSX5002')" onmouseover="this.className='over'" onmouseout="this.className='menu'">KSX5002</kbd>,
+                <kbd class="menu" @click="ohiChange('Ko','2-KPS9256')" onmouseover="this.className='over'" onmouseout="this.className='menu'">KPS9256</kbd>
               </li>
             </ul>
             <ul>
               <li>
                 공세벌식 : 
-                <kbd class="menu" @click="javascript:ohiChange('Ko','3-90')" onmouseover="this.className='over'" onmouseout="this.className='menu'">3-90</kbd>,
-                <kbd class="menu" @click="javascript:ohiChange('Ko','3-91')" onmouseover="this.className='over'" onmouseout="this.className='menu'">3-91</kbd>,
-                <kbd class="menu" @click="javascript:ohiChange('Ko','3-P3')" onmouseover="this.className='over'" onmouseout="this.className='menu'">3-P3</kbd>
+                <kbd class="menu" @click="ohiChange('Ko','3-90')" onmouseover="this.className='over'" onmouseout="this.className='menu'">3-90</kbd>,
+                <kbd class="menu" @click="ohiChange('Ko','3-91')" onmouseover="this.className='over'" onmouseout="this.className='menu'">3-91</kbd>,
+                <kbd class="menu" @click="ohiChange('Ko','3-P3')" onmouseover="this.className='over'" onmouseout="this.className='menu'">3-P3</kbd>
               </li>
               <li>
                 신세벌식 : 
-                <kbd class="menu" @click="javascript:ohiChange('Ko','Sin3-M')" onmouseover="this.className='over'" onmouseout="this.className='menu'">M</kbd>,               
-                <kbd class="menu" @click="javascript:ohiChange('Ko','Sin3-P2')" onmouseover="this.className='over'" onmouseout="this.className='menu'">P2</kbd>,
-                <kbd class="menu" @click="javascript:ohiChange('Ko','Sin3-Gongdong')" onmouseover="this.className='over'" onmouseout="this.className='menu'">공동개발안</kbd>
+                <kbd class="menu" @click="ohiChange('Ko','Sin3-M')" onmouseover="this.className='over'" onmouseout="this.className='menu'">M</kbd>,               
+                <kbd class="menu" @click="ohiChange('Ko','Sin3-P2')" onmouseover="this.className='over'" onmouseout="this.className='menu'">P2</kbd>,
+                <kbd class="menu" @click="ohiChange('Ko','Sin3-Gongdong')" onmouseover="this.className='over'" onmouseout="this.className='menu'">공동개발안</kbd>
               </li>
               <li>
                 모아치기 :  
-                <kbd class="menu" @click="javascript:ohiChange('Ko','3m-Anmatae')" onmouseover="this.className='over'" onmouseout="this.className='menu'">안마태 소리 글판</kbd>,
-                <kbd class="menu" @click="javascript:ohiChange('Ko','3m-Semoe')" onmouseover="this.className='over'" onmouseout="this.className='menu'">세모이</kbd>
+                <kbd class="menu" @click="ohiChange('Ko','3m-Anmatae')" onmouseover="this.className='over'" onmouseout="this.className='menu'">안마태 소리 글판</kbd>,
+                <kbd class="menu" @click="ohiChange('Ko','3m-Semoe')" onmouseover="this.className='over'" onmouseout="this.className='menu'">세모이</kbd>
               </li>
             </ul>
           </div>
-
-          <a id="more_typewriter_layouts_link" class="layout_group_link" onclick="document.getElementById('more_typewriter_layouts').style.display='inline';this.style.display='none';" href="javascript:void(0)">
-            【타자기＋】
-          </a>
           <div id="more_typewriter_layouts" class="layout_group_tab">
-            <a class="layout_group_link" onclick="var ml=document.getElementById('more_typewriter_layouts');ml.style.display='none';getElementById('more_typewriter_layouts_link').style.display='inline-block'" href="javascript:void(0)">【타자기>            －】</a>
             <ul>
               <li>
                 2벌 전신 : 
-                <kbd class="menu" @click="javascript:ohiChange('Ko','2-HGS_1952')" onmouseover="this.className='over'" onmouseout="this.className='menu'">한당욱·김철수·신한종(1952)</kbd>,
-                <kbd class="menu" @click="javascript:ohiChange('Ko','2-Jang_1953')" onmouseover="this.className='over'" onmouseout="this.className='menu'">장봉선(1953)</kbd>,
-                <kbd class="menu" @click="javascript:ohiChange('Ko','2-Bag_Song_1968')" onmouseover="this.className='over'" onmouseout="this.className='menu'">박영효·송계범(1968)</kbd>
+                <kbd class="menu" @click="ohiChange('Ko','2-HGS_1952')" onmouseover="this.className='over'" onmouseout="this.className='menu'">한당욱·김철수·신한종(1952)</kbd>,
+                <kbd class="menu" @click="ohiChange('Ko','2-Jang_1953')" onmouseover="this.className='over'" onmouseout="this.className='menu'">장봉선(1953)</kbd>,
+                <kbd class="menu" @click="ohiChange('Ko','2-Bag_Song_1968')" onmouseover="this.className='over'" onmouseout="this.className='menu'">박영효·송계범(1968)</kbd>
               </li>
               <li>
                 2벌 기계식 : 
-                <kbd class="menu" @click="javascript:ohiChange('Ko','2-GJS')" onmouseover="this.className='over'" onmouseout="this.className='menu'">김준성 풀어쓰기(1946)</kbd>
+                <kbd class="menu" @click="ohiChange('Ko','2-GJS')" onmouseover="this.className='over'" onmouseout="this.className='menu'">김준성 풀어쓰기(1946)</kbd>
               </li>
               <li>
                 3벌 기계식 : 
-                <kbd class="menu" @click="javascript:ohiChange('Ko','3t-Gong_Munjang')" onmouseover="this.className='over'" onmouseout="this.className='menu'">공병우 문장용</kbd>,
-                <kbd class="menu" @click="javascript:ohiChange('Ko','3t-Oesol')" onmouseover="this.className='over'" onmouseout="this.className='menu'">외솔(1981)</kbd>
+                <kbd class="menu" @click="ohiChange('Ko','3t-Gong_Munjang')" onmouseover="this.className='over'" onmouseout="this.className='menu'">공병우 문장용</kbd>,
+                <kbd class="menu" @click="ohiChange('Ko','3t-Oesol')" onmouseover="this.className='over'" onmouseout="this.className='menu'">외솔(1981)</kbd>
               </li>
               <li>
                 4벌 기계식 : 
-                <kbd class="menu" @click="javascript:ohiChange('Ko','4t-1969')" onmouseover="this.className='over'" onmouseout="this.className='menu'">1969 과학기술처</kbd>,
-                <kbd class="menu" @click="javascript:ohiChange('Ko','4t-1985')" onmouseover="this.className='over'" onmouseout="this.className='menu'">1985 과학기술처</kbd>
+                <kbd class="menu" @click="ohiChange('Ko','4t-1969')" onmouseover="this.className='over'" onmouseout="this.className='menu'">1969 과학기술처</kbd>,
+                <kbd class="menu" @click="ohiChange('Ko','4t-1985')" onmouseover="this.className='over'" onmouseout="this.className='menu'">1985 과학기술처</kbd>
               </li>
             </ul>
           </div>
